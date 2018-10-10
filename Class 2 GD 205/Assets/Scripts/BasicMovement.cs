@@ -9,10 +9,11 @@ public class BasicMovement : MonoBehaviour
     public GameObject myObj;
     public int gridSize = 2;
     public GameObject winSpot;
-    public int maxGrid = 8;
+    public int maxGrid = -8;
     public int minGrid = 0;
     Vector3 playerStart;
     public GameObject background;
+
     public int score = 0;
     public Text scoreText;
     public GameObject[] enemySpot;
@@ -24,14 +25,14 @@ public class BasicMovement : MonoBehaviour
     void Start()
     {
         scoreText.text = score.ToString();
-        playerStart = myObj.transform.position;
+        //playerStart = myObj.transform.position;
         int randoX = (int)(Random.Range(minGrid, maxGrid / gridSize));
         Debug.Log(randoX);
         randoX *= gridSize;
         int randoZ = (int)(Random.Range(minGrid, maxGrid / gridSize));
         Debug.Log(randoZ);
         randoZ *= gridSize;
-        winSpot.transform.position = new Vector3(randoX, winSpot.transform.position.y, randoZ);
+        //winSpot.transform.position = new Vector3(randoX, winSpot.transform.position.y, randoZ);
 
 
         //while randoX and randoZ are the same, reset them (until they are different)
@@ -57,8 +58,8 @@ public class BasicMovement : MonoBehaviour
         movementInput();
         checkBounds();
         checkWin();
-        checkLose();
-        moveEnemy();
+     //   checkLose();
+        //moveEnemy();
     }
     void checkWin()
     {
@@ -74,24 +75,24 @@ public class BasicMovement : MonoBehaviour
             Start();
         }
     }
-    void checkLose()
-    {
-        //IF MYOBJ IS AT THE ENEMYSPOT POSITION, MAKE SOMETHING HAPPEN
-        if (myObj.transform.position == enemySpot.transform.position)
-        {
-            //increase our score
-            score++;
-            //reset the players position
-            myObj.transform.position = playerStart;
-            //reset the background to be a random HSV color
+    //void checkLose()
+    //{
+    //    //IF MYOBJ IS AT THE ENEMYSPOT POSITION, MAKE SOMETHING HAPPEN
+    //    if (myObj.transform.position == enemySpot.)
+    //    {
+    //        //increase our score
+    //        score++;
+    //        //reset the players position
+    //        myObj.transform.position = playerStart;
+    //        //reset the background to be a random HSV color
             //H between the range 0 and 1
             //S between the range 1 and 1
             //V between the range 0.5 and 1
-            background.GetComponent<MeshRenderer>().material.color = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
+    //        background.GetComponent<MeshRenderer>().material.color = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
             //run start to reset the scene
-            Start();
-        }
-    }
+    //        Start();
+    //    }
+    //}
     void checkLoseScore()
     {
         //IF MYOBJ IS AT THE ENEMYSPOT POSITION, MAKE SOMETHING HAPPEN
@@ -100,27 +101,27 @@ public class BasicMovement : MonoBehaviour
             
         }
     }
-    void moveEnemy()
-    {
+    //void moveEnemy()
+   // {
 
-        //move our enemy along the x axis
-        enemySpot[i].transform.position += new Vector3((float)gridSize / enemySpeed, 0f, 0f);
+   //     //move our enemy along the x axis
+   //     enemySpot[i].transform.position += new Vector3((float)gridSize / enemySpeed, 0f, 0f);
 
         //if the enemy goes off the grid
-        if (enemySpot.transform.position.x > maxGrid)
-        {
+   //     if (enemySpot.transform.position.x > maxGrid)
+   //     {
             //reset the x value to the left side and the move the z to the next row
-            enemySpot.transform.position = new Vector3(minGrid, enemySpot.transform.position.y, enemySpot.transform.position.z - gridSize);
-        }
+   //         enemySpot.transform.position = new Vector3(minGrid, enemySpot.transform.position.y, enemySpot.transform.position.z - gridSize);
+   //     }
 
         //if the z goes past the bottom of our grid
-        if (enemySpot.transform.position.z < minGrid)
-        {
+   //     if (enemySpot.transform.position.z < minGrid)
+   //     {
             //then reset it to the top left
-            enemySpot.transform.position = new Vector3(minGrid, enemySpot.transform.position.y, maxGrid);
-        }
+   //         enemySpot.transform.position = new Vector3(minGrid, enemySpot.transform.position.y, maxGrid);
+   //     }
 
-    }
+   // }
     void movementInput()
     {
 

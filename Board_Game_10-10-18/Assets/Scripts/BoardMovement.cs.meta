@@ -1,0 +1,29 @@
+fileFormatVersion: 2
+guid: f456058f14a4ed64781be869654139cb
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+
+
+guid: 67407032ab04d1e40a1ae57e317fd2cd
+labels:
+- Character
+timeCreated: 1518037960
+licenseType: Free
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - MyObj: {instanceID: 0}
+  - winSpot: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+assetBundleVariant: 
