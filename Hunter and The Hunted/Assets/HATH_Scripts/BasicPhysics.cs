@@ -26,5 +26,18 @@ public class BasicPhysics : MonoBehaviour {
 		if (Input.GetKey(KeyCode.D)){
 			myBody.AddForce(Vector3.right * forceAmt);
 		}
+
+
+	}
+	void OnTriggerEnter(Collider col){
+		transform.localScale *= 1.01f;
+	}
+
+	void OnCollisionEnter(Collider col){
+		if (transform.lossyScale.sqrMagnitude > col.transform.lossyScale.sqrMagnitude) {
+			col.gameObject.SetActive (false);
+		} else {
+			gameObject.SetActive (true);
+		}
 	}
 }

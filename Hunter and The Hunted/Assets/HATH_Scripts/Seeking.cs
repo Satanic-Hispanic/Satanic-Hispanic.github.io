@@ -27,13 +27,15 @@ public class Seeking : MonoBehaviour {
 		myBody.AddForce(direction * forceAmt);
 
 	}
-	//void OnCollisionEnter(Collision colReport){ //it creates a new Collision when it executes, storing information about the collision
-	//	Destroy (gameObject);
-	//
-		//we check to see if the gameObject collided with (as indicated in the colReport) is the same as our target
-	//	if (colReport.gameObject == target) {
-	//		Destroy (target);
-	//	}
-	//}
+	/*
+	void OnCollisionEnter(Collision col){ //it creates a new Collision when it executes, storing information about the collision
+		Debug.Log ("collision W/ " + GetComponent<Collider> ().gameObject.name);
 
+		if (col.transform == target) {
+			
+			//Destroy (target.gameObject);
+			target.gameObject.SetActive (false);
+
+		}
+		}*/
 }

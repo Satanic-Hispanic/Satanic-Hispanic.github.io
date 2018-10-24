@@ -12,7 +12,7 @@ public class LaserScript : MonoBehaviour {
 		line = gameObject.GetComponent<LineRenderer> ();
 		line.enabled = false;
 
-		Screen.lockCursor = true;
+		//Screen.lockCursor = true;
 	}
 
 	void Update () 
