@@ -13,7 +13,7 @@ public class BasicPhysics : MonoBehaviour {
 	}
 
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		if (Input.GetKey(KeyCode.W)){
 			myBody.AddForce(Vector3.forward * forceAmt);
 		}
@@ -29,15 +29,17 @@ public class BasicPhysics : MonoBehaviour {
 
 
 	}
-	void OnTriggerEnter(Collider col){
-		transform.localScale *= 1.01f;
+	void OnTriggerStay(Collider col){
+		transform.localScale *= 1.1f;
 	}
 
-	void OnCollisionEnter(Collider col){
-		if (transform.lossyScale.sqrMagnitude > col.transform.lossyScale.sqrMagnitude) {
-			col.gameObject.SetActive (false);
-		} else {
-			gameObject.SetActive (true);
+	void OnCollisionEnter(Collision col){
+		if (col.gameObject.CompareTag ("Playable")) {
+			if (transform.lossyScale.sqrMagnitude > col.transform.lossyScale.sqrMagnitude) {
+				col.gameObject.SetActive (false);
+			} else {
+				gameObject.SetActive (true);
+			}
 		}
 	}
 }

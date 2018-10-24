@@ -20,13 +20,16 @@ public class Enemy : MonoBehaviour {
 
 	// Update is called once per frame
 	void FixedUpdate () {
+		
+		Vector3 direction;
 		//we can use the 2 positions to determine the distance apart
 		//Vector3.Normalize will convert this into a direction (a vector3 with x/y/z values between -1 and 1)
 		if (transform.lossyScale.sqrMagnitude > target.lossyScale.sqrMagnitude) {
-			Vector3 direction = Vector3.Normalize (target.position - transform.position);
+			direction = Vector3.Normalize (target.position - transform.position);
 		} else {
-			Vector3 directon = Vector3.Normalize (transform.position - target.position);
+			direction = Vector3.Normalize (transform.position - target.position);
 		}
+		myBody.AddForce(direction *forceAmt);
 
 	}
 	/*

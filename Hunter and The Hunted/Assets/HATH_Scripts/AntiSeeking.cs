@@ -6,8 +6,8 @@ public class AntiSeeking : MonoBehaviour {
 
 	Rigidbody myBody;
 
-	//assign the Predetor in the inspector
-	public Transform Predetor;
+	//assign the target in the inspector
+	public Transform target;
 
 	//we use a forceAmt so we can multiply the direction and it will affect all axes the same
 	public float forceAmt;
@@ -19,10 +19,10 @@ public class AntiSeeking : MonoBehaviour {
 	}
 
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		//we can use the 2 positions to determine the distance apart
 		//Vector3.Normalize will convert this into a direction (a vector3 with x/y/z values between -1 and 1)
-		Vector3 direction = Vector3.Normalize(transform.position - Predetor.position);
+		Vector3 direction = Vector3.Normalize(transform.position - target.position);
 
 		myBody.AddForce(direction * forceAmt);
 
@@ -31,8 +31,8 @@ public class AntiSeeking : MonoBehaviour {
 	void OnCollisionEnter(Collision col){ //it creates a new Collision when it executes, storing information about the collision
 		Debug.Log("collision W/ " + GetComponent<Collider>().gameObject.name);
 
-		if (col.transform == Predetor) {
-			//Destroy (Predetor.gameObject);
+		if (col.transform == target) {
+			//Destroy (target.gameObject);
 			gameObject.SetActive(false);
 		}
 		}*/
