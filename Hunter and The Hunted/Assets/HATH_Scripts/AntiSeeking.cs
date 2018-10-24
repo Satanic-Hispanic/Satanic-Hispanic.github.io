@@ -22,7 +22,7 @@ public class AntiSeeking : MonoBehaviour {
 	void Update () {
 		//we can use the 2 positions to determine the distance apart
 		//Vector3.Normalize will convert this into a direction (a vector3 with x/y/z values between -1 and 1)
-		Vector3 direction = -Vector3.Normalize(target.position - transform.position);
+		Vector3 direction = Vector3.Normalize(transform.position - target.position);
 
 		myBody.AddForce(direction * forceAmt);
 
