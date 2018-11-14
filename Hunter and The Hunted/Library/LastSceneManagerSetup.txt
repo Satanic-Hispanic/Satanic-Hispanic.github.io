@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/cyclops_New.unity
+  isLoaded: 1
+  isActive: 1
