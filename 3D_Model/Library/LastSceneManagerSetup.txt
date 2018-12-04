@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Animation.unity
+- path: Assets/DWEEB_MUSIC_VIDEO.unity
   isLoaded: 1
   isActive: 1
